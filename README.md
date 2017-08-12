@@ -2,29 +2,31 @@
 
 Set up a VPN server on an AWS EC2 Instance via a single, self contained, Cloud Formation template.
 
-See [aws-ec2-vpn.json](https://github.com/weavenet/aws-ec2-vpn/blob/master/aws-ec2-vpn.json) for raw template.
+See [aws-ec2-vpn.json](https://github.com/aadarsh-shetty/AWS-EC2-VPN/blob/master/aws-ec2-vpn.json) for raw template.
 
 ## Setup via AWS Console
 
 Follow the [AWS Cloud Formation Guide](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.html)
-to create a new Cloud Formation Stack from the [aws-ec2-vpn.json](https://github.com/weavenet/aws-ec2-vpn/blob/master/aws-ec2-vpn.json) template.
+to create a new Cloud Formation Stack from the [aws-ec2-vpn.json](https://github.com/aadarsh-shetty/AWS-EC2-VPN/blob/master/aws-ec2-vpn.json) template.
 
 ## Setup via CLI
 
 You must have the [aws-cli](https://aws.amazon.com/cli/) installed and available in your path.
+
+If you do not have aws-cli, for installation of the same [refer](http://docs.aws.amazon.com/cli/latest/userguide/tutorial-ec2-ubuntu.html).
 
 Additionally, you must set your default AWS credentials to a user with permissions to setup a VPC and launch EC2 instances.
 
 Clone down this repo and execute the **setup.sh** script with the following input.
 
 ```shell
-$ bash setup.sh YOUR_VPN_PRE_SHARED_KEY YOUR_VPN_USERNAME YOUR_VPN_PASSWORD
+$ sh setup.sh YOUR_VPN_PRE_SHARED_KEY YOUR_VPN_USERNAME YOUR_VPN_PASSWORD
 ```
 
 Once the setup is complete, the script will return the persistent EIP of the Instance. For example:
 
 ```shell
-$ bash setup.sh MySuperSecretPreSharedKey vpnuser TheVPNUserPassword
+$ sh setup.sh MySuperSecretPreSharedKey vpnuser TheVPNUserPassword
 VPN Setup in progress.
 VPN Setup complete. IP address is '35.164.187.145'.
 ```
@@ -43,13 +45,13 @@ Ggive the VPN a name in **Service Name**.
 
 Click Create.
 
-![image1](https://raw.githubusercontent.com/weavenet/aws-ec2-vpn/master/images/image1.png)
+![image1](https://raw.githubusercontent.com/aadarsh-shetty/AWS-EC2-VPN/master/images/image1.png)
 
 Add the IP address, which was output from the setup.sh script above, as the **Server Address**.
 
 The user you specified, as **YOUR_VPN_USERNAME** in the script above, as the **Account Name**.
 
-![image2](https://raw.githubusercontent.com/weavenet/aws-ec2-vpn/master/images/image2.png)
+![image2](https://raw.githubusercontent.com/aadarsh-shetty/AWS-EC2-VPN/master/images/image2.png)
 
 Click on **Authentication Settings**. 
 
@@ -60,21 +62,21 @@ as the **Shared Secret**.
 
 Click OK.
 
-![image3](https://raw.githubusercontent.com/weavenet/aws-ec2-vpn/master/images/image3.png)
+![image3](https://raw.githubusercontent.com/aadarsh-shetty/AWS-EC2-VPN/master/images/image3.png)
 
 Click on **Advanced Settings** ensure that **Send all traffic over VPN connection** is checked.
 
 Click OK.
 
-![image4](https://raw.githubusercontent.com/weavenet/aws-ec2-vpn/master/images/image4.png)
+![image4](https://raw.githubusercontent.com/aadarsh-shetty/AWS-EC2-VPN/master/images/image4.png)
 
 Click on **Connect** to connect to the VPN.
 
-![image5](https://raw.githubusercontent.com/weavenet/aws-ec2-vpn/master/images/image5.png)
+![image5](https://raw.githubusercontent.com/aadarsh-shetty/AWS-EC2-VPN/master/images/image5.png)
 
 Ensure your traffic coming from the VPN IP via [What Is My IP](https://www.google.com/#q=what+is+my+ip).
 
-![image6](https://raw.githubusercontent.com/weavenet/aws-ec2-vpn/master/images/image6.png)
+![image6](https://raw.githubusercontent.com/aadarsh-shetty/AWS-EC2-VPN/master/images/image6.png)
 
 ## Costs
 
